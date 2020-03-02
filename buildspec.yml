@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - wget https://packages.chef.io/files/stable/chefdk/3.9.0/ubuntu/16.04/chefdk_3.9.0-1_amd64.deb
+      - dpkg -i chefdk_3.9.0-1_amd64.deb
+      - git clone https://github.com/scottpgallagher/chefconf-devopspipeline.git
+      - wget https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/containerd.io_1.2.5-1_amd64.deb
+      - wget https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce-cli_18.09.6~3-0~ubuntu-xenial_amd64.deb
+      - wget https://download.docker.com/linux/ubuntu/dists/xenial/pool/stable/amd64/docker-ce_18.09.6~3-0~ubuntu-xenial_amd64.deb
+      - dpkg -i containerd.io_1.2.5-1_amd64.deb
+      - dpkg -i docker-ce-cli_18.09.6~3-0~ubuntu-xenial_amd64.deb
+      - dpkg -i docker-ce_18.09.6~3-0~ubuntu-xenial_amd64.deb
+      - apt-get install -y rubygems ruby-dev
+      - chef gem install kitchen-docker
+  post_build:
+    commands:
+      - cd chefconf-devopspipeline
+      - kitchen test
