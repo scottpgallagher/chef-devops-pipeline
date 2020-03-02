@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Download Cookbook') {
             steps {
-                git credentialsId: 'github-creds', url: 'git@github.com:scottpgallagher/chefconf-devopspipeline.git'
+                git credentialsId: 'github-creds', url: 'git@github.com:scottpgallagher/chef-devops-pipeline.git'
             }
         }
         stage('Install Docker ') {
