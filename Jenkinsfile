@@ -47,13 +47,13 @@ pipeline {
             }
         }
         */
-        
+        /*
         stage('Clean Workspace') {
             steps {
                 sh 'sudo rm -rf /var/lib/jenkins/workspace/chef-devops-pipeline_master*'
             }
         }
-        
+        */
         stage('Install Ruby and Test Kitchen') {
             steps {
                 sh 'sudo apt-get install -y rubygems ruby-dev'
