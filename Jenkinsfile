@@ -1,5 +1,6 @@
 pipeline {
-
+    agent any
+    /*
     stages {
         stage('Update Ubuntu') {
             steps {
@@ -19,6 +20,7 @@ pipeline {
                 }
             }
         }
+        
         stage('Download Cookbook') {
             steps {
                 git credentialsId: 'github-creds', url: 'git@github.com:scottpgallagher/chef-devops-pipeline.git'
@@ -49,6 +51,12 @@ pipeline {
                 sh 'chef gem install kitchen-docker'
             }
         }
+        */
+        stage('Clone from GitHub') {
+             steps {
+                 git url: 'https://github.com/scottpgallagher/chef-devops-pipeline.git', branch: 'master'
+             }
+         }
         stage('Run Test Kitchen') {
             steps {
                sh 'sudo kitchen test' 
