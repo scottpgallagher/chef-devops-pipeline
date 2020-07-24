@@ -1,7 +1,8 @@
 pipeline {
     agent any
-    /*
+    
     stages {
+        /*
         stage('Update Ubuntu') {
             steps {
                 sh 'sudo apt-get update'
@@ -87,4 +88,4 @@ pipeline {
             }
         }
     }
-
+}
