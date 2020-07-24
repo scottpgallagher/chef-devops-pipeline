@@ -55,7 +55,7 @@ pipeline {
         */
         stage('Clone from GitHub') {
              steps {
-                 git url: 'https://github.com/scottpgallagher/chef-devops-pipeline.git', branch: 'master'
+                 git url: 'git@github.com:scottpgallagher/chef-devops-pipeline.git', branch: 'master', credentialsId: 'GitHub'
              }
          }
         stage('Run Test Kitchen') {
