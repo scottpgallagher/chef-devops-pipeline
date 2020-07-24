@@ -72,7 +72,7 @@ pipeline {
         }
         */
         stage('Let the human feel important') {
-            input { message "Click Proceed to continue the build"}
+            input { message "Click Proceed to upload cookbook to Chef Server"}
             steps {
                 echo "User Input"    
             }
