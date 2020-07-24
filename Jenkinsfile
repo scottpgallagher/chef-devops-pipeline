@@ -63,11 +63,13 @@ pipeline {
                sh 'sudo kitchen test' 
             }
         }
+        /*
         stage('Slack Notification') {
             steps {
                 slackSend message: "Team DevOps: Please approve ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.JOB_URL} | Open>)"
             }
         }
+        */
         stage('Let the human feel important') {
             input { message "Click Proceed to continue the build"}
             steps {
