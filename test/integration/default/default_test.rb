@@ -11,7 +11,7 @@ end
 
 describe file('/var/www/html/index.html') do
   it { should exist }
-  its('content') { should match(/Hello ChefConf2020!!/) } 
+  its('content') { should match(/Hello ChefConf2019!!/) } 
 end
 
 describe upstart_service('apache2') do
@@ -20,5 +20,5 @@ describe upstart_service('apache2') do
 end
 
 describe command('curl localhost') do
-    its('stdout') { should match(/Hello ChefConf2020!!/)}
+    its('stdout') { should match(/Hello ChefConf2019!!/)}
 end
